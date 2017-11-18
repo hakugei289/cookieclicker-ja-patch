@@ -5,6 +5,9 @@
 Cookie Clicker（本家）
 http://orteil.dashnet.org/cookieclicker/
 
+このソフトウェアは非公式なものであり、
+使用には、ゲームデータの破損等のリスクが伴います。
+すべて自己責任でご利用ください。
 
 
 ### License ###
@@ -13,7 +16,8 @@ http://orteil.dashnet.org/cookieclicker/
 以下の条項に従ってください。
 
 If you wish to make a translation or a mod of the game, you are required to follow these rules :
--rehosting the game, editing the sourcecode, dealing with bugs, and keeping up with the official version’s updates are your own responsibilities
+rehosting the game, editing the sourcecode, dealing with bugs, and keeping up with the official version’s updates are your own responsibilities
+
 -the page must have a paypal donate button leading to the same url as the official version’s
 -the page must retain all the information in the top-bar (including credits), in addition to a link to the official version
 -the page must not include advertisements; you are not allowed to make profits from the page
