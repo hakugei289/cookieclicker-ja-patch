@@ -24,7 +24,7 @@ var numberFormatters =
 	rawFormatter,
 	formatEveryThirdPower([
 		'',
-		'　百万',
+		' 百万',
 		' 十億',
 		' 兆',
 		' 千兆',
@@ -61,6 +61,26 @@ var numberFormatters =
 ];
 
 /*=====================================================================================
-Replace text by jQuery
+Replace text 
 =======================================================================================*/
-document.getElementById('statsButton').innerHTML = 'ステータス';
+function toJA(id) {
+  return document.getElementById(id);
+}
+
+toJA('prefsButton').innerHTML = 'オプション';
+toJA('statsButton').innerHTML = '統計';
+toJA('logButton').innerHTML = '情報';
+
+toJA('storeTitle').innerHTML = 'ストア';
+toJA('productName0').innerHTML = 'カーソル';
+toJA('productName1').innerHTML = 'グランマ';
+toJA('productName2').innerHTML = '農場';
+toJA('productName3').innerHTML = '鉱山';
+toJA('productName4').innerHTML = '工場';
+toJA('productName5').innerHTML = '銀行';
+toJA('productName6').innerHTML = '神殿';
+toJA('productName7').innerHTML = '魔法使いの塔';
+toJA('productName8').innerHTML = '宇宙船';
+toJA('productName9').innerHTML = '錬金術室';
+toJA('productName10').innerHTML = '次元門';
+toJA('productName11').innerHTML = 'タイムマシン';
