@@ -63,7 +63,14 @@ var numberFormatters =
 /*=====================================================================================
 Replace html
 =======================================================================================*/
-
+function HtmlToJA(id) {
+  return document.getElementById(id);
+}
+HtmlToJA('prefsButton').innerHTML = 'オプション';
+HtmlToJA('statsButton').innerHTML = '統計';
+HtmlToJA('logButton').innerHTML = '情報';
+	
+	
 var num_gobj_JA=0
 function gobj_JA(label) {
 	Game.ObjectsById[num_gobj_JA]["displayName"]=label;
@@ -81,3 +88,4 @@ gobj_JA("魔法使いの塔");
 gobj_JA("宇宙船");
 gobj_JA("錬金術室");
 Game.UpgradesById[244]["name"]="三角帽子";
+Game.UpgradesById[244]["desc"]="魔法使いの塔の効果が<b>２倍</b> になる。<q>この円錐状の魔術用具について、幾何学的比率に比例して魔力の感度が高まることが試験で示された。</q>";
