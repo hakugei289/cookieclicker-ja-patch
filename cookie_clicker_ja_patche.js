@@ -75,7 +75,7 @@ Rewrite Buildings Description
 =======================================================================================*/	
 var num_gobj_JA=0
 function gobj_JA(label_JA,desc_JA) {
-	Game.ObjectsById[num_gobj_JA]["displayName"]=label_JA;
+	Game.ObjectsById[num_gobj_JA]["displayName"]=label_JA; 
 	Game.ObjectsById[num_gobj_JA]["desc"]=desc_JA;
 	num_gobj_JA++;
   return;
@@ -90,52 +90,43 @@ gobj_JA("神殿","貴重な古代クッキーの宝庫");
 gobj_JA("魔法使いの塔","魔法の呪文でクッキーを召喚");
 gobj_JA("宇宙船","クッキー星から新鮮なクッキーを輸送する");
 gobj_JA("錬金術室","金をクッキーに変える");
+gobj_JA("次元門","クッキー界に繋がる扉を開ける");
 
 /* Upgrades [Cookies] */
-Game.UpgradesById[39]["name"]="マカダミアナッツクッキー	";
-Game.UpgradesById[39]["desc"]="クッキーの生産倍率<b>+2%</b>。<q>くっそウマい！</q>";
-Game.UpgradesById[40]["name"]="ダブルチップクッキー";
-Game.UpgradesById[40]["desc"]="クッキーの生産倍率<b>+2%</b>。<q>二倍のチップ、二倍のうまみ（二倍のカロリー）</q>";
-Game.UpgradesById[41]["name"]="ホワイトチョコレートマカダミアナッツクッキー";
-Game.UpgradesById[41]["desc"]="クッキーの生産倍率<b>+2%</b>。<q>Orteil氏のお気に入り</q>";
-Game.UpgradesById[42]["name"]="オールチョコレートクッキー";
-Game.UpgradesById[42]["desc"]="クッキーの生産倍率<b>+2%</b>。<q>チョコレート過剰摂取</q>";
-/*+4% */
 function gupg_JA(id,name,desc){
-	var power_JA=Game.UpgradesById[id]["desc"]
+	var power_JA=Game.UpgradesById[id]["desc"];
 	var start=power_JA.indexOf( "<b>" );
 	var end=power_JA.indexOf( "</b>" );
 	var desc_mid = power_JA.slice( start+3, end );
-	Game.UpgradesById[id]["name"]=name;
-	Game.UpgradesById[id]["desc"]="クッキーの生産倍率<b>"+desc_mid+"</b><q>"+desc+"</q>";
+/*	Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]="クッキーの生産倍率<b>"+String(desc_mid)+"</b><q>"+String(desc)+"</q>";
 	return;
 
 }
-gupg_JA(55,"ダークチョコレートコーティングクッキー","このクッキーは光を良く吸収するので、見つけるためにはほとんどの場合、目を凝らす必要がある。")
-gupg_JA(56,"ホワイトチョコレートコーティングクッキー","フレーバーで完璧にコーティングされてて眩しいくらいピカピカだ。")
-
-
+gupg_JA(39,"マカダミアナッツクッキー","くっそウマい！");
+gupg_JA(40,"ダブルチップクッキー","二倍のチップ、二倍のうまみ（二倍のカロリー）。");
+gupg_JA(41,"ホワイトチョコレートマカダミアナッツクッキー","Orteil氏のお気に入り。");
+gupg_JA(42,"オールチョコレートクッキー","チョコレート過剰摂取");
+gupg_JA(55,"ダークチョコレートコーティングクッキー","このクッキーは光を良く吸収するので、見つけるためにはほとんどの場合、目を凝らす必要がある。");
+gupg_JA(56,"ホワイトチョコレートコーティングクッキー","フレーバーで完璧にコーティングされてて眩しいくらいピカピカだ。");
 
 /* Upgrades [Buildings] */
-function gupg_twice_JA(id,name,label_id,desc){
-	Game.UpgradesById[id]["name"]=name;
-	Game.UpgradesById[id]["desc"]=Game.ObjectsById[label_id]["displayName"]+"の効果が<b>2倍</b>になる。<q>"+desc+"</q>";
+function gupg_twice_JA(id,category,name,desc){
+	/*Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]=String(Game.ObjectsById[category]["displayName"])+"の効果が<b>2倍</b>になる。<q>"+String(desc)+"</q>";
 	return;
 
 }
 /*農場*/
-gupg_twice_JA(111,"ショウガクッキーカカシ",2,"いたずらっぽい笑顔で農場を見つめるカカシ")
+gupg_twice_JA(111,2,"ショウガクッキーカカシ","いたずらっぽい笑顔で農場を見つめるカカシ");
 
 /*工場*/
-gupg_twice_JA(46,"ラジウム反応装置",4,"あなたのクッキーにヘルシーな光を追加")
-
+gupg_twice_JA(46,4,"ラジウム反応装置","あなたのクッキーにヘルシーな光を追加");
+/*神殿*/
+gupg_twice_JA(240,6,"おいしい恩恵","なんと、「焼き主」は全能なるスプーンで聖なる恵みを信徒に分け与えられたんだ - きらめくシュガー、闇夜のチョコ、そして小麦の知識を。そして少年よ、あのパーティーはとても素晴らしい物だったぞ。");
 /*魔法の塔*/
-gupg_twice_JA(245,"ヒゲ、ヒゲ、ヒゲ",7,"聞いていたか？あごひげこそ合い言葉だ。")
+gupg_twice_JA(244,7,"三角帽子","この円錐状の魔術用具について、幾何学的比率に比例して魔力の感度が高まることが試験で示された。");
+gupg_twice_JA(245,7,"ヒゲ、ヒゲ、ヒゲ","聞いていたか？あごひげこそ合い言葉だ。");
 /*宇宙船*/
-gupg_twice_JA(19,"バニラ星雲",8,"宇宙服のヘルメットを脱いだら、バニラの匂いがするかもね！※真似しないで下さい")
-gupg_twice_JA(20,"ワームホール",8,"このショートカットを利用することで、より早く航行出来ます")
-
-Game.UpgradesById[240]["name"]="おいしい恩恵	";
-Game.UpgradesById[240]["desc"]="神殿の効果が<b>２倍</b>になる。<q>なんと、「焼き主」は全能なるスプーンで聖なる恵みを信徒に分け与えられたんだ - きらめくシュガー、闇夜のチョコ、そして小麦の知識を。そして少年よ、あのパーティーはとても素晴らしい物だったぞ。</q>";
-Game.UpgradesById[244]["name"]="三角帽子";
-Game.UpgradesById[244]["desc"]="魔法使いの塔の効果が<b>２倍</b>になる。<q>この円錐状の魔術用具について、幾何学的比率に比例して魔力の感度が高まることが試験で示された。</q>";
+gupg_twice_JA(19,8,"バニラ星雲","宇宙服のヘルメットを脱いだら、バニラの匂いがするかもね！※真似しないで下さい");
+gupg_twice_JA(20,8,"ワームホール","このショートカットを利用することで、より早く航行出来ます");
