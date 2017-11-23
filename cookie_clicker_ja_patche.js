@@ -3,7 +3,7 @@ Coockie Clicker Japanese patch (Unofficial)
 by ya_fury http://twitter.com/@ya_fury
 This softwear contains the Orteil's "Cookie Clicker" code.
 */
-var versionJA="2.0042-ｃ";
+var versionJA="2.0042-d";
 
 /*Original License*/
 /*
@@ -92,6 +92,9 @@ gobj_JA("宇宙船","クッキー星から新鮮なクッキーを輸送する")
 gobj_JA("錬金術室","金をクッキーに変える");
 gobj_JA("次元門","クッキー界に繋がる扉を開ける");
 
+/*=====================================================================================
+Rewrite Upgrades Description
+=======================================================================================*/	
 /* Upgrades [Cookies] */
 function gupg_JA(id,name,desc){
 	var power_JA=Game.UpgradesById[id]["desc"];
@@ -130,3 +133,15 @@ gupg_twice_JA(245,7,"ヒゲ、ヒゲ、ヒゲ","聞いていたか？あごひ�
 /*宇宙船*/
 gupg_twice_JA(19,8,"バニラ星雲","宇宙服のヘルメットを脱いだら、バニラの匂いがするかもね！※真似しないで下さい");
 gupg_twice_JA(20,8,"ワームホール","このショートカットを利用することで、より早く航行出来ます");
+/*錬金術室*/
+gupg_twice_JA(22,9,"アンチモン","実際金の価値がある");
+/* Upgrades [Mouse] */
+
+/* Upgrades [Cookies] */
+function gupg_mouse_JA(id,name,desc){
+/*	Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]="1クリック当たりのクッキー生産量を<b>CpSの1%分</b>増やす。<q>"+String(desc)+"</q>";
+	return;
+}
+gupg_mouse_JA(78,"アダマンチウムのマウス","これでダイヤモンドも切れるよ。");
+
