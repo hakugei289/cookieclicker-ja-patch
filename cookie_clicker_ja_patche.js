@@ -3,7 +3,7 @@ Coockie Clicker Japanese patch (Unofficial)
 by ya_fury http://twitter.com/@ya_fury
 This softwear contains the Orteil's "Cookie Clicker" code.
 */
-var versionJA="2.0042-d";
+var versionJA="2.0042-e";
 
 /*Original License*/
 /*
@@ -136,12 +136,18 @@ gupg_twice_JA(20,8,"ワームホール","このショートカットを利用す
 /*錬金術室*/
 gupg_twice_JA(22,9,"アンチモン","実際金の価値がある");
 /* Upgrades [Mouse] */
-
-/* Upgrades [Cookies] */
 function gupg_mouse_JA(id,name,desc){
 /*	Game.UpgradesById[id]["name"]=String(name);*/
 	Game.UpgradesById[id]["desc"]="1クリック当たりのクッキー生産量を<b>CpSの1%分</b>増やす。<q>"+String(desc)+"</q>";
 	return;
 }
 gupg_mouse_JA(78,"アダマンチウムのマウス","これでダイヤモンドも切れるよ。");
-gupg_mouse_JA(119,"アンオブテニウムのマウス","これだけ良いマウスがあれば十分だ");
+
+/* Upgrades [Grandma] */
+function gupg_grandma_JA(id,category,name,desc){
+	var grandmas=String(Game.ObjectsById[1]["displayName"])
+/*	Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]=grandmas+"の効果が<b>2倍</b>になる。"+String(Game.ObjectsById[category]["displayName"])+"の<b>CpS</b>を"+String(category-1)+grandmas+"ごとに<b>+%1</b><q>"+String(desc)+"</q>";
+	return;
+}
+gupg_grandma_JA(252,7,"魔法使いグランマ","ちちんぷいぷいクッキーよ来い！と唱える素敵な魔女。");
