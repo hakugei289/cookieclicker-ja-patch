@@ -142,6 +142,7 @@ function gupg_mouse_JA(id,name,desc){
 	return;
 }
 gupg_mouse_JA(78,"アダマンチウムのマウス","これでダイヤモンドも切れるよ。");
+gupg_mouse_JA(119,"アンオブテニウムのマウス","これだけ良いマウスがあれば十分だ");
 
 /* Upgrades [Grandma] */
 function gupg_grandma_JA(id,category,name,desc){
