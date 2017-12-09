@@ -15,7 +15,7 @@ http://orteil.dashnet.org/cookieclicker/
 #翻訳データについて#
 本ソフトウェアの作成には
 日本語wikiのデータを利用しました。
-編集者の皆様に感謝を申し上げますす。
+編集者の皆様に感謝を申し上げます。
 
 cookie clicker 日本語wiki
 https://www55.atwiki.jp/cookieclickerjpn/
@@ -25,7 +25,7 @@ https://www55.atwiki.jp/cookieclickerjpn/
 以下の条項に従ってください。
 また、ソフトウェアのバグや、改良のアイディア等
 ございましたら、お気軽にお問い合わせorコミット下さい。
-
+---以下、本家ライセンス-----------------------------------------------
 If you wish to make a translation or a mod of the game, you are required to follow these rules :
 rehosting the game, editing the sourcecode, dealing with bugs, and keeping up with the official version’s updates are your own responsibilities
 
