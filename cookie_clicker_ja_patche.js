@@ -1,4 +1,4 @@
-﻿var versionJA="2.0042-e";
+﻿var versionJA="2.0042-e2";
 /* 概要
 名称：クッキークリッカー日本語パッチ（非公式）
 作成：やふりー　 http://twitter.com/@ya_fury
