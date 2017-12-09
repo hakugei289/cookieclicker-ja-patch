@@ -1,6 +1,9 @@
 # README #
+クッキークリッカー日本語パッチ（非公式）
+by やふりー　 http://twitter.com/@ya_fury
 
-このソフトウェアは、cookieclickerというゲームのUIを日本へ翻訳する機能を提供します。
+このソフトウェアは、オルテイル氏作のブラウザゲーム
+”cookieclicker”のUIを日本へ翻訳する機能を提供します。
 
 Cookie Clicker（本家）
 http://orteil.dashnet.org/cookieclicker/
