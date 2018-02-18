@@ -1,4 +1,4 @@
-﻿var versionJA="2.0042-f3";
+﻿var versionJA="2.0042-f4";
 /* 概要
 名称：クッキークリッカー日本語パッチ（非公式）
 作成：やふりー　 http://twitter.com/@ya_fury
@@ -183,16 +183,22 @@ upgradeCookiesJA(126,"ロレオル","だから、えっと、無駄じゃない�
 upgradeCookiesJA(127,"ジャファケーキ","真に一からクッキーを焼こうとするなら、まずは工場から造らなきゃ。");
 upgradeCookiesJA(128,"グリースカップ","超潤滑ピーナッツバター");
 upgradeCookiesJA(344,"デジット","3つのフレーバー、骨はなし");
-/* Upgrades [Mouse] */
-function upgradeMouseJa(id,category,name,desc){
-	/*Game.UpgradesById[id]["name"]=String(name);*/
-	Game.UpgradesById[id]["desc"]=String(Game.ObjectsById[category]["displayName"])+"の生産力が<b>2倍</b>になる。<q>"+String(desc)+"</q>";
-	return;
 
-upgradeMouseJa(0,0,"強化人差し指","ツンツン");
-upgradeMouseJa(1,0,"手根管症候群防止クリーム","クリックしすぎで……指が痛い……");
-upgradeMouseJa(2,0,"二刀流	","みてみて、両手！");
+/* Upgrades [Mouse] */
+function upgradeCursorJa(id,name,effect,desc){
+	/*Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]="マウスとカーソルの生産力が"+String(effect)+"<q>"+String(desc)+"</q>";
+	return;
 }
+upgradeCursorJa(0,"強化人差し指","<b>2倍</b>になる。","ツンツン");
+upgradeCursorJa(1,"手根管症候群防止クリーム","<b>2倍</b>になる。","クリックしすぎで……指が痛い……");
+upgradeCursorJa(2,"二刀流	","<b>2倍</b>になる。","みてみて、両手！");
+upgradeCursorJa(3,"千手観音","カーソル以外の施設の数 × <b>0.1</b>増加する。","クリックなう");
+upgradeCursorJa(4,"万手観音","カーソル以外の施設の数 × <b>0.5</b>増加する。","クリッククリックなう");
+upgradeCursorJa(5,"億手観音","カーソル以外の施設の数 × <b>5</b>増加する。","クリッククリッククリックなう");
+upgradeCursorJa(6,"兆手観音","カーソル以外の施設の数 × <b>50</b>増加する。","クリッククリッククリッククリックなう");
+upgradeCursorJa(43,"京手観音","カーソル以外の施設の数 × <b>500</b>増加する。","クリッククリッククリッククリッククリック");
+upgradeCursorJa(82,"垓手観音","カーソル以外の施設の数 × <b>5000</b>増加する。","お前は, ただクリックしてクリックしてクリックしてクリックしてクリックするだけだ。本当に簡単だろう？");
 
 /* Upgrades [Buildings] */
 function upgradeTwiceJa(id,category,name,desc){
@@ -210,6 +216,7 @@ upgradeTwiceJa(110,1,"2倍分厚いメガネ","ああ……じゃあ私が焼い
 upgradeTwiceJa(192,1,"老化剤","直観に反するが、グランマは老化でさらに強力になる薄気味悪い能力を持っている。");
 upgradeTwiceJa(294,1,"エクストリーム歩行器","炎のタトゥーシールとピューッと鳴る小さなラッパ付き。");
 upgradeTwiceJa(307,1,"制約を越えた者","悪い子育てについてのよくある寓話かもしれないが、このお話でグランマがどこへ向かうのか見てみよう。");
+upgradeTwiceJa(428,1,"逆認知症","すごく不安で、何だかいつもより調子悪い。");
 
 /*農場*/
 upgradeTwiceJa(10,2,"安いクワ","一掘りでこんなに！");
@@ -298,18 +305,31 @@ upgradeTwiceJa(99,12,"シュガー粒子","甘くて硬い粒子");
 upgradeTwiceJa(100,12,"弦理論","クッキーを焼くことの真の目的に関する新しい見解が明らかになる(ついでに宇宙の構造も)");
 upgradeTwiceJa(101,12,"大型マカロン衝突型加速器","何て風変わりな！");
 upgradeTwiceJa(102,12,"ビッグバンベイク","そうしてここから全てが始まったのです");
+upgradeTwiceJa(118,12,"リバースサイクロトロン	","これで粒子と反スピン原子に分離できる。ええと…その…味は良いらしいよ。");
 
 /*プリズム*/
 upgradeTwiceJa(175,13,"宝石研磨","すす汚れを取り除き、もっと光を通せるようにしよう。本当に本当にヤバい。");
 upgradeTwiceJa(176,13,"第９の色","今までシャコすら見向きもしなかった、光学的に未知の深みを模索せよ！");
 upgradeTwiceJa(177,13,"チョコレート光","そのココア蛍光で肌を焼こう《警告：色んな面白い肌ができあがるかも、ただし死ぬほどひどい》");
 upgradeTwiceJa(178,13,"「グレイン」ボー","Roy G. Bivって何の頭文字か覚えてる？：R は rice (コメ)、O は oats (カラスムギ)、うーん、B は barley (大麦)…かな？");
+upgradeTwiceJa(179,13,"超純粋宇宙光","あなたのプリズムは、未使用で無垢なフォトンを宇宙のもう一方の端から受け取れるようになった。");
 
 /*チャンスメーカー*/
 upgradeTwiceJa(416,14,"あなたのラッキークッキー","これは君が今までに焼いた最初のクッキー。深く感傷をそそる価値あるもの、そして今となっては、趣きのある臭いを放つもの。");
 upgradeTwiceJa(417,14,"「全てが水の泡になる」魔法のコイン","弾くと必ず反対側に着地するコイン。表でも裏でも縁でもなく、意図したのと反対側に。");
 upgradeTwiceJa(418,14,"抽選勝利チケット","何のくじだ？宝くじ、これが宝くじというものだ！宝くじだけが重要なんだ！");
 upgradeTwiceJa(419,14,"四葉のクローバー畑","ここには巨大モンスターはいない、ラッキーな草が覆い尽くすだけ。");
+
+/* Upgrades [Lucky] */
+function upgradeLuckyJa(id,name,effect,desc){
+	/*Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]="ゴールデンクッキーの"+String(effect)+"<q>"+String(desc)+"</q>";
+	return;
+}
+upgradeLuckyJa(52,"吉日","出現間隔が<b>半分</b>になり、効果時間が<b>2倍</b>になる。","やった、四つ葉のペニーだ！");
+upgradeLuckyJa(53,"発見能力","出現間隔が<b>半分</b>になり、効果時間が<b>2倍</b>になる。","なんてこったい！蹄鉄が７つだ！");
+upgradeLuckyJa(86,"うまくいったぜ","効果時間が<b>2倍</b>になる。","徹夜したんじゃないの？");
+
 
 /* Upgrades [Mouse] */
 function upgradeMouseJa(id,name,desc){
@@ -372,3 +392,19 @@ upgradePrestigeJa(130,25,"天国のクッキースタンド","後で、天国の
 upgradePrestigeJa(131,50,"天国のベーカリー","神のケーキや神のペストリーも売ってるよ。");
 upgradePrestigeJa(132,75,"天国の製菓ファクトリー","そこでは天使のクッキー職人が働くという。彼らは天使の昼休みを取り、時には天使のストライキを起こす。");
 upgradePrestigeJa(133,100,"天国の鍵","これはペストリー天国に通じる、真珠のように美しく(そして美味しい)ゲートの鍵、あなたのヘブンリーチップの全備蓄へのアクセスを許可します。どうぞ賢くお使いください。");
+
+function upgradeApocalypseJa(id,name,effect,desc){
+/*	Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"]=String(effect)+"<q>"+String(desc)+"</q>";
+	return;
+}
+upgradeApocalypseJa(64,"ビンゴセンター・研究施設","グランマの生産力が<b>4</b>倍になる","グランマたちの不満を何とか抑える方法は無いのか？…ビンゴ！");
+upgradeApocalypseJa(65,"特殊チョコレートチップ","クッキーの生産倍率<b>+1%</b>","電子設計チョコチップ。言うなればコンピューターチップ");
+upgradeApocalypseJa(66,"デザイナーココア豆","クッキーの生産倍率<b>+2%</b>","従来よりも空力的に優れた新製品！");
+upgradeApocalypseJa(67,"儀式の延べ棒","グランマの生産力が<b>2</b>倍になる","数年にわたる「科学」研究の成果！");
+upgradeApocalypseJa(68,"地獄のオーブン","クッキーの生産倍率<b>+3%</b>","「科学」の力ですよ、勿論！");
+/*upgradeApocalypseJa(69,"統合思念","各グランマの基本生産倍率を<b>グランマの人数×+2%</b>する。<div class='warning'>警告：この装置は予想外かつ、好ましくない結果をもたらす恐れがある。つまり地獄の一丁目だ。警告はしたぞ。それでも購入するか？</div>","我らは多くにして、一つなるもの"); */
+upgradeApocalypseJa(70,"エキゾチック・ナッツ","クッキーの生産倍率<b>+4%</b>","病み付きになるよ！");
+upgradeApocalypseJa(71,"集団洗脳","各グランマの基本生産倍率をさらに<b>グランマの人数×+2%</b>する。<div class='warning'>これ以上科学研究を続ければ予測不能な結果にたどり着くかもしれない。警告はしたぞ。 </div>","我らは融合する。我らは統合する。我らは発達する。"); 
+upgradeApocalypseJa(72,"難解なシュガー","クッキーの生産倍率<b>+5%</b>","風味は虫のようで、腱のようで、泥土のようでもある。");
+upgradeApocalypseJa(73,"約束","各グランマの基本生産倍率を<b>グポータルの数×+5%</b>する。<div class='warning'>これは悪い着想だ</div>","捻らせよ 這わせよ 滑らせよ 悶えさせよ 本日 我らは決起する"); 
