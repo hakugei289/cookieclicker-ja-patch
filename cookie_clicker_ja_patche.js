@@ -25,6 +25,113 @@ Spoilers ahead.
 http://orteil.dashnet.org
 */
 
+/**********
+ * Header *
+ **********/
+
+CT = {};
+
+CT.Backup = {};
+
+CT.Disp = {};
+/**********
+ * Display *
+ **********/
+CT.Disp.AddMenuStats = function(title) {
+
+	var stats = document.createElement('div');
+	stats.className = 'subsection';
+	stats.appendChild(title());
+
+	var listing = function(name, text) {
+		var div = document.createElement('div');
+		div.className = 'listing';
+		var b = document.createElement('b');
+		if (typeof name == 'string') b.appendChild(document.createTextNode(name));
+		else b.appendChild(name); // fragment
+		b.appendChild(document.createTextNode(' : '));
+		div.appendChild(b);
+		div.appendChild(text);
+		return div;
+	}
+
+	var listingQuest = function(text, placeholder) {
+		var frag = document.createDocumentFragment();
+		frag.appendChild(document.createTextNode(text + ' '));
+		var span = document.createElement('span');
+		span.onmouseout = function() { Game.tooltip.hide(); };
+		span.onmouseover = function() {Game.tooltip.draw(this, escape(CT.Disp[placeholder].innerHTML));};
+		span.style.cursor = 'default';
+		span.style.display = 'inline-block';
+		span.style.height = '10px';
+		span.style.width = '10px';
+		span.style.borderRadius = '5px';
+		span.style.textAlign = 'center';
+		span.style.backgroundColor = '#C0C0C0';
+		span.style.color = 'black';
+		span.style.fontSize = '9px';
+		span.style.verticalAlign = 'bottom';
+		span.textContent = '?';
+		frag.appendChild(span);
+		return frag;
+	}
+
+	stats.appendChild(listing('パッチのバージョン', document.createTextNode(CT.VersionMajor+CT.VersionMinor)));
+	l('menu').insertBefore(stats, l('menu').childNodes[2]);
+
+}
+ 
+CT.Disp.AddMenu = function() {
+	var title = function() {
+		var div = document.createElement('div');
+		div.className = 'title ' + CT.Disp.colorTextPre + CT.Disp.colorBlue;
+		div.textContent = 'クッキークリッカー日本語パッチ';
+		return div;
+	}
+	if (Game.onMenu == 'prefs') {
+		/*CT.Disp.AddMenuPref(title);*/
+	}
+	else if (Game.onMenu == 'stats') {
+		CT.Disp.AddMenuStats(title);
+	}
+}
+
+/**********
+ * Main *
+ **********/
+CT.VersionMajor = '2.0106';
+CT.VersionMinor = 'a';
+CT.ReplaceNative = function() {
+	CT.Backup.UpdateMenu = Game.UpdateMenu;
+	Game.UpdateMenu = function() {
+		CT.Backup.UpdateMenu();
+		CT.Disp.AddMenu();
+	}
+}
+
+CT.Init = function() {
+	var proceed = true;
+	if (Game.version != CT.VersionMajor) {
+		proceed = confirm('この日本語パッチのバージョン ' + CT.VersionMajor + '.' + CT.VersionMinor + ' はゲームバージョン ' + CT.VersionMajor + '向けのものです。ゲームと読み込むパッチのバージョンが異なると、エラーが発生するかもしれません。本当に読み込みますか？');
+	}
+	if (proceed) {
+		var delay = setInterval(function() {
+			CT.DelayInit();
+			clearInterval(delay);
+		}, 500);
+	}
+}
+
+CT.DelayInit = function() {
+	CT.ReplaceNative();
+	if (Game.prefs.popups) Game.Popup('日本語パッチバージョン' + CT.VersionMajor + '.' + CT.VersionMinor + ' を読み込みました！');
+	else Game.Notify('日本語パッチバージョン ' + CT.VersionMajor + '.' + CT.VersionMinor + ' を読み込みました！', '', '', 1, 1);
+}
+/**********
+ * Header *
+ **********/
+ CT.Init();
+
 /*=====================================================================================
 MISC HELPER FUNCTIONS (Replace)
 =======================================================================================*/
@@ -72,6 +179,7 @@ var numberFormatters =
 /*=====================================================================================
 Replace html
 =======================================================================================*/
+/*
 function HtmlToJA(id) {
   return document.getElementById(id);
 }
@@ -79,7 +187,7 @@ HtmlToJA('prefsButton').innerHTML = 'オプション';
 HtmlToJA('statsButton').innerHTML = '統計';
 HtmlToJA('logButton').innerHTML = '情報';
 var credit_JA="<div>日本語ver<br>v. "+versionJA+"<br>ゲームver</div>";
-HtmlToJA('versionNumber').insertAdjacentHTML('afterbegin',credit_JA);
+HtmlToJA('versionNumber').insertAdjacentHTML('afterbegin',credit_JA);*/
 /*=====================================================================================
 Rewrite Buildings Description
 =======================================================================================*/	
