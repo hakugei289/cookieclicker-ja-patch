@@ -1,5 +1,4 @@
-﻿var versionJA = "2.0106-b1";
-/* 概要
+﻿/* 概要
 名称：クッキークリッカー日本語パッチ（非公式）
 作成：やふりー　 http://twitter.com/@ya_fury
 
@@ -26,16 +25,18 @@ http://orteil.dashnet.org
  * Header *
  **********/
 CT = {};
-CT.Render = {};
+CT.Bulding = {};
 CT.VersionMajor = '2.0106';
-CT.VersionMinor = 'c1';
+CT.VersionMinor = 'c2';
 
 CT.ShowVersion = function(){
 	var str = "<div>日本語 " + CT.VersionMajor +"-" + CT.VersionMinor + "<br>ゲーム " + Game.version +"</div>";
 	document.getElementById('versionNumber').innerHTML= str;
 }	
 
-CT.Render.Legacyway = function() {
+
+
+CT.Legacyway = function() {
 	/*=====================================================================================
 	MISC HELPER FUNCTIONS (Replace)
 	=======================================================================================*/
@@ -93,6 +94,7 @@ CT.Render.Legacyway = function() {
 		var desc_mid = power_JA.slice(start + 3, end);
 		/*	Game.UpgradesById[id]["name"]=String(name);*/
 		Game.UpgradesById[id]["desc"] = "クッキーの生産倍率<b>" + String(desc_mid) + "</b><q>" + String(desc) + "</q>";
+		Game.UpgradesById[id]["baseDesc"] = "クッキーの生産倍率<b>" + String(desc_mid) + "</b><q>" + String(desc) + "</q>";
 		return;
 	}
 	/*ノーマルクッキー*/
@@ -493,13 +495,13 @@ CT.Render.Legacyway = function() {
 CT.Init = function() {
 	var proceed = true;
 	if (Game.version != CT.VersionMajor) {
-		proceed = confirm('この日本語パッチのバージョン ' + CT.VersionMajor + '.' + CT.VersionMinor + ' はゲームバージョン ' + CT.VersionMajor + '向けのものです。ゲームと読み込むパッチのバージョンが異なると、エラーが発生するかもしれません。本当に読み込みますか？');
+		proceed = confirm('この日本語パッチのバージョン ' + CT.VersionMajor + '-' + CT.VersionMinor + ' はゲームバージョン ' + CT.VersionMajor + '向けのものです。ゲームと読み込むパッチのバージョンが異なると、エラーが発生するかもしれません。本当に読み込みますか？');
 	}
 	if (proceed) {
-		CT.Render.Legacyway();
+		CT.Legacyway();
 		CT.ShowVersion();
-		if (Game.prefs.popups) Game.Popup('日本語パッチバージョン' + CT.VersionMajor + '.' + CT.VersionMinor + ' を読み込みました！');
-		else Game.Notify('日本語パッチバージョン ' + CT.VersionMajor + '.' + CT.VersionMinor + ' を読み込みました！', '', '', 1, 1);
+		if (Game.prefs.popups) Game.Popup('日本語パッチバージョン' + CT.VersionMajor + '-' + CT.VersionMinor + ' を読み込みました！');
+		else Game.Notify('日本語パッチバージョン ' + CT.VersionMajor + '-' + CT.VersionMinor + ' を読み込みました！', '', '', 1, 1);
 	}
 }
 CT.Init();
