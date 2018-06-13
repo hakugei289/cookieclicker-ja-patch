@@ -25,15 +25,35 @@ http://orteil.dashnet.org
  * Header *
  **********/
 CT = {};
-CT.Bulding = {};
 CT.VersionMajor = '2.0106';
 CT.VersionMinor = 'c2';
+CT.Upgrades = {};
 
 CT.ShowVersion = function(){
 	var str = "<div>日本語 " + CT.VersionMajor +"-" + CT.VersionMinor + "<br>ゲーム " + Game.version +"</div>";
 	document.getElementById('versionNumber').innerHTML= str;
-}	
+}
 
+CT.Upgrades.Building = function(id,buil,name,desc){
+	/*Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"] = String(buil) + "の生産力が<b>2倍</b>になる。<q>" + String(desc) + "</q>";
+	Game.UpgradesById[id]["baseDesc"] = String(buil) + "の生産力が<b>2倍</b>になる。<q>" + String(desc) + "</q>";
+}
+
+
+/*錬金術室*/
+CT.Upgrades.Lab = function (){
+	bldg=Game.ObjectsById[9]["displayName"];
+	CT.Upgrades.Building(22, bldg, "アンチモン", "実際金の価値がある");
+	CT.Upgrades.Building(23, bldg, "生地のエッセンス", "古代錬クッキー術の5つの秘法により抽出する。");
+	CT.Upgrades.Building(24, bldg "本物のチョコレート", "カカオの構成と全く同じ");
+	CT.Upgrades.Building(49, bldg, "アンブロシア", "これをクッキー生地に加えると、更に病みつきなものになるに違いない！恐らくとても危険なほどに……。合法に取引し続けられることを願おう。");
+	CT.Upgrades.Building(115, bldg, "生地の水", "添加の際は注意 - 添加しすぎるとマフィンになる。そして、誰もマフィンは好まない。");
+	CT.Upgrades.Building(197, bldg, "根源のるつぼ", "最も大きい山の中の、最も深い部分にある、土の中で最も希少な成分で造られた、この伝説のるつぼは、ビッグバンそのものの性質を保ち続けていると言われている。");
+	CT.Upgrades.Building(302, bldg, "原子流転説", "錬金術の奥義に至り、あらゆる物質は別の物質へ変換可能であると分かった - 鉛は金に、水銀は水に ; さらに重要なことだが、どんな物でもクッキーに変換できる（そして変換すべきである）ということを悟った。");
+	CT.Upgrades.Building(315, bldg, "ギンガトビバッタ", "よし、ついにやったな。上出来だ。すばらしい。これで 3 つの銀河がクッキーに変換された。君が銀河系の間を飛び回れるのはいいことだ。");
+	CT.Upgrades.Building(436,bldg,"化学の到来", "あのさぁ…聞いて？ 錬金術は何もかも出鱈目だったんだよ、それこそ全くもって根拠の無いゴミカスだったんだよ…。あんまりじゃないか、なぁ神様？");
+}
 
 
 CT.Legacyway = function() {
@@ -297,15 +317,6 @@ CT.Legacyway = function() {
 	upgradeTwiceJa(301, 8, "ダイソン球", "君は宇宙科学についての知識を、少しだけ局所的な取り組みに応用する方法を見つけた。恒星を包み込むように建造されたこの超物質製の超巨大球体は、きっとあなたのクッキー生産力を劇的に向上させる。");
 	upgradeTwiceJa(314, 8, "最後のフロンティア", "長い道のりだったがここまで踏破した。しかし本当にやりがいのある事業だった - 景色は素晴らしいし、油の価格も少しは手頃になるしね。");
 	upgradeTwiceJa(435, 8, "自動操縦", "完全ロボット化の乗組員が配備された君の宇宙船！ 船が宇宙で迷子になっても遺族補償を払わずに済むそれだけで、驚きの超節約。");
-	/*錬金術室*/
-	upgradeTwiceJa(22, 9, "アンチモン", "実際金の価値がある");
-	upgradeTwiceJa(23, 9, "生地のエッセンス", "古代錬クッキー術の5つの秘法により抽出する。");
-	upgradeTwiceJa(24, 9, "本物のチョコレート", "カカオの構成と全く同じ");
-	upgradeTwiceJa(49, 9, "アンブロシア", "これをクッキー生地に加えると、更に病みつきなものになるに違いない！恐らくとても危険なほどに……。合法に取引し続けられることを願おう。");
-	upgradeTwiceJa(115, 9, "生地の水", "添加の際は注意 - 添加しすぎるとマフィンになる。そして、誰もマフィンは好まない。");
-	upgradeTwiceJa(197, 9, "根源のるつぼ", "最も大きい山の中の、最も深い部分にある、土の中で最も希少な成分で造られた、この伝説のるつぼは、ビッグバンそのものの性質を保ち続けていると言われている。");
-	upgradeTwiceJa(302, 9, "原子流転説", "錬金術の奥義に至り、あらゆる物質は別の物質へ変換可能であると分かった - 鉛は金に、水銀は水に ; さらに重要なことだが、どんな物でもクッキーに変換できる（そして変換すべきである）ということを悟った。");
-	upgradeTwiceJa(315, 9, "ギンガトビバッタ", "よし、ついにやったな。上出来だ。すばらしい。これで 3 つの銀河がクッキーに変換された。君が銀河系の間を飛び回れるのはいいことだ。");
 	/*次元門*/
 	upgradeTwiceJa(25, 10, "古代遺跡のレシピ書", "もろいピーナッツで出来た奇妙な石版は、古代のクッキーレシピを遺していた。凄い！");
 	upgradeTwiceJa(26, 10, "狂気の小麦色労働者", "立ち上がれ、我がミニオン達よ！");
@@ -499,6 +510,7 @@ CT.Init = function() {
 	}
 	if (proceed) {
 		CT.Legacyway();
+		CT.Upgrades.Lab();
 		CT.ShowVersion();
 		if (Game.prefs.popups) Game.Popup('日本語パッチバージョン' + CT.VersionMajor + '-' + CT.VersionMinor + ' を読み込みました！');
 		else Game.Notify('日本語パッチバージョン ' + CT.VersionMajor + '-' + CT.VersionMinor + ' を読み込みました！', '', '', 1, 1);
