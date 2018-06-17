@@ -24,14 +24,39 @@ http://orteil.dashnet.org
 /**********
  * Header *
  **********/
+let CTT={
+	VersionMajor :'2.0106',
+	VersionMinor : 'd1',
+}
 CT = {};
 CT.VersionMajor = '2.0106';
-CT.VersionMinor = 'c2';
+CT.VersionMinor = 'd1';
 CT.Upgrades = {};
 
 CT.ShowVersion = function(){
 	var str = "<div>日本語 " + CT.VersionMajor +"-" + CT.VersionMinor + "<br>ゲーム " + Game.version +"</div>";
 	document.getElementById('versionNumber').innerHTML= str;
+}
+
+CT.Upgrades.Mouse=function(id, name, desc) {
+	/*	Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"] = "1クリック当たりのクッキー生産量を<b>CpSの1%分</b>増やす。<q>" + String(desc) + "</q>";
+	Game.UpgradesById[id]["baseDesc"] = "1クリック当たりのクッキー生産量を<b>CpSの1%分</b>増やす。<q>" + String(desc) + "</q>";
+}
+
+CT.Upgrades.MouseRun = function(){
+	CT.Upgrades.Mouse(75, "プラスチックマウス", "ちょっときしむな");
+	CT.Upgrades.Mouse(76, "鉄のマウス", "1349のようにクリックだ！");
+	CT.Upgrades.Mouse(77, "チタニウムのマウス", "重いけどパワフル");
+	CT.Upgrades.Mouse(78, "アダマンチウムのマウス", "これでダイヤモンドも切れるよ。");
+	CT.Upgrades.Mouse(119, "アンオブテニウムのマウス", "これだけ良いマウスがあれば十分だ");
+	CT.Upgrades.Mouse(190, "エルディウムのマウス", "もし私がきみなら、それをネズミみたいにカリカリする");
+	CT.Upgrades.Mouse(191, "望まれし合金のマウス", "クリックは立派で男前なことだ。しかしマウスに穴を開けるようなことはするな。ゲームをしなさい");
+	CT.Upgrades.Mouse(366, "夢の鋼鉄のマウス", "君はタッチパッドでクリックしているかもしれないが、我々は今やもっと賢くなるべきだ。");
+	CT.Upgrades.Mouse(367, "不磨のマウス", "マウスをラットにでもさせるまで鍛え続けるつもりかい？");
+	CT.Upgrades.Mouse(427, "軍用ミスリル製マウス", "53人が囲んで押して何とか動き、48人が一斉にボタンに飛び降り漸くクリック。言わば、それくらい重くて骨が折れる。");
+	CT.Upgrades.Mouse(460, "ハイテク黒曜石マウス ", "洗練されたデザインの、高度先進技術を駆使したマウス。そのこだわりは、ただ一つ「クリック」の為。");
+	CT.Upgrades.Mouse(461, "プラズマ大理石マウス ", "（使うと）視界の隅がブレてぼやけてくるこのマウスは、ほんのそよ風が掠めただけでクリックの嵐を巻き起こす。");
 }
 
 CT.Upgrades.Building = function(id,buil,name,desc){
@@ -46,7 +71,7 @@ CT.Upgrades.Lab = function (){
 	bldg=Game.ObjectsById[9]["displayName"];
 	CT.Upgrades.Building(22, bldg, "アンチモン", "実際金の価値がある");
 	CT.Upgrades.Building(23, bldg, "生地のエッセンス", "古代錬クッキー術の5つの秘法により抽出する。");
-	CT.Upgrades.Building(24, bldg "本物のチョコレート", "カカオの構成と全く同じ");
+	CT.Upgrades.Building(24, bldg, "本物のチョコレート", "カカオの構成と全く同じ");
 	CT.Upgrades.Building(49, bldg, "アンブロシア", "これをクッキー生地に加えると、更に病みつきなものになるに違いない！恐らくとても危険なほどに……。合法に取引し続けられることを願おう。");
 	CT.Upgrades.Building(115, bldg, "生地の水", "添加の際は注意 - 添加しすぎるとマフィンになる。そして、誰もマフィンは好まない。");
 	CT.Upgrades.Building(197, bldg, "根源のるつぼ", "最も大きい山の中の、最も深い部分にある、土の中で最も希少な成分で造られた、この伝説のるつぼは、ビッグバンそのものの性質を保ち続けていると言われている。");
@@ -54,7 +79,38 @@ CT.Upgrades.Lab = function (){
 	CT.Upgrades.Building(315, bldg, "ギンガトビバッタ", "よし、ついにやったな。上出来だ。すばらしい。これで 3 つの銀河がクッキーに変換された。君が銀河系の間を飛び回れるのはいいことだ。");
 	CT.Upgrades.Building(436,bldg,"化学の到来", "あのさぁ…聞いて？ 錬金術は何もかも出鱈目だったんだよ、それこそ全くもって根拠の無いゴミカスだったんだよ…。あんまりじゃないか、なぁ神様？");
 }
+/*反物質凝縮器*/
+/*プリズム*/
+CT.Upgrades.Prism = function (){
+	bldg=Game.ObjectsById[13]["displayName"];
+	CT.Upgrades.Building(319, bldg, "陰影反転", "うわぁ、これは本当に目がチカチカするよ。");
+	CT.Upgrades.Building(175, bldg, "宝石研磨", "すす汚れを取り除き、もっと光を通せるようにしよう。本当に本当にヤバい。");
+	CT.Upgrades.Building(176, bldg, "第９の色", "今までシャコすら見向きもしなかった、光学的に未知の深みを模索せよ！");
+	CT.Upgrades.Building(177, bldg, "チョコレート光", "そのココア蛍光で肌を焼こう《警告：色んな面白い肌ができあがるかも、ただし死ぬほどひどい》");
+	CT.Upgrades.Building(178, bldg, "「グレイン」ボー", "Roy G. Bivって何の頭文字か覚えてる？：R は rice (コメ)、O は oats (カラスムギ)、うーん、B は barley (大麦)…かな？");
+	CT.Upgrades.Building(179, bldg, "超純粋宇宙光", "あなたのプリズムは、未使用で無垢なフォトンを宇宙のもう一方の端から受け取れるようになった。");
+	CT.Upgrades.Building(201, bldg, "燐光", "あなたのプリズムは光の入力がなくても発光するようになった。つまり実質的に2倍の出力を得られる！");
+	CT.Upgrades.Building(306, bldg, "光のサンクトラム", "あなたのプリズム操作係は光の中の何か（あるいは光を超越し、おそらく我々を超越した何者か）をますます惹きつけるようになった。");
+}
+CT.Upgrades.BuildingRun  = function(){
+	CT.Upgrades.Lab();
+	CT.Upgrades.Prism();
+}
 
+
+CT.Upgrades.Cookies = function(id, name, desc) {
+	var power = Game.UpgradesById[id]["desc"];
+	var start = power.indexOf("<b>");
+	var end = power.indexOf("</b>");
+	var desc_mid = power.slice(start + 3, end);
+	/*	Game.UpgradesById[id]["name"]=String(name);*/
+	Game.UpgradesById[id]["desc"] = "クッキーの生産倍率<b>" + String(desc_mid) + "</b><q>" + String(desc) + "</q>";
+	Game.UpgradesById[id]["baseDesc"] = "クッキーの生産倍率<b>" + String(desc_mid) + "</b><q>" + String(desc) + "</q>";
+	return;
+}
+CT.Upgrades.Pocket = function (){
+	CT.Upgrades.Cookies(457,"チョコレートクリンクル","日々の生活で味わう美味しさに感謝し称える、宗教とは無関係のクッキー。勿論クリスマスやその他の無意味な行事なんて論外。")
+}
 
 CT.Legacyway = function() {
 	/*=====================================================================================
@@ -74,9 +130,6 @@ CT.Legacyway = function() {
 	HtmlToJA('prefsButton').innerHTML = 'オプション';
 	HtmlToJA('statsButton').innerHTML = '統計';
 	HtmlToJA('logButton').innerHTML = '情報';
-	/*
-	var credit_JA = "<div>日本語ver<br>v. " + versionJA + "<br>ゲームver</div>";
-	HtmlToJA('versionNumber').insertAdjacentHTML('afterbegin', credit_JA);*/
 	/*=====================================================================================
 	Rewrite Buildings Description
 	=======================================================================================*/
@@ -344,14 +397,6 @@ CT.Legacyway = function() {
 	upgradeTwiceJa(200, 12, "ナノ宇宙学", "素粒子は見かけによらないが各々が固有の宇宙を裡に持ち、計り知れない熱量を保存している、そうナノ宇宙学理論では仮定している。");
 	upgradeTwiceJa(305, 12, "パルス", "君は宇宙の鼓動そのものを送信し終えた。これは時代を超えたリズムであり、全ての物質と反物質はこれに従って一斉に脈打つのだ。どういうわけか、これでもっとクッキーを得られるようになる。");
 	upgradeTwiceJa(318, 12, "他にも基本的な超微粒子があるだろう、多分", "森羅万象さえもが行き詰まりに達した時こそ、あなたの研究が終わりに近づいていることが分かるのです。");
-	/*プリズム*/
-	upgradeTwiceJa(175, 13, "宝石研磨", "すす汚れを取り除き、もっと光を通せるようにしよう。本当に本当にヤバい。");
-	upgradeTwiceJa(176, 13, "第９の色", "今までシャコすら見向きもしなかった、光学的に未知の深みを模索せよ！");
-	upgradeTwiceJa(177, 13, "チョコレート光", "そのココア蛍光で肌を焼こう《警告：色んな面白い肌ができあがるかも、ただし死ぬほどひどい》");
-	upgradeTwiceJa(178, 13, "「グレイン」ボー", "Roy G. Bivって何の頭文字か覚えてる？：R は rice (コメ)、O は oats (カラスムギ)、うーん、B は barley (大麦)…かな？");
-	upgradeTwiceJa(179, 13, "超純粋宇宙光", "あなたのプリズムは、未使用で無垢なフォトンを宇宙のもう一方の端から受け取れるようになった。");
-	upgradeTwiceJa(201, 13, "燐光", "あなたのプリズムは光の入力がなくても発光するようになった。つまり実質的に2倍の出力を得られる！");
-	upgradeTwiceJa(306, 13, "光のサンクトラム", "あなたのプリズム操作係は光の中の何か（あるいは光を超越し、おそらく我々を超越した何者か）をますます惹きつけるようになった。");
 	/*チャンスメーカー*/
 	upgradeTwiceJa(416, 14, "あなたのラッキークッキー", "これは君が今までに焼いた最初のクッキー。深く感傷をそそる価値あるもの、そして今となっては、趣きのある臭いを放つもの。");
 	upgradeTwiceJa(417, 14, "「全てが水の泡になる」魔法のコイン", "弾くと必ず反対側に着地するコイン。表でも裏でも縁でもなく、意図したのと反対側に。");
@@ -370,21 +415,7 @@ CT.Legacyway = function() {
 	upgradeLuckyJa(53, "発見能力", "出現間隔が<b>半分</b>になり、効果時間が<b>2倍</b>になる。", "なんてこったい！蹄鉄が７つだ！");
 	upgradeLuckyJa(86, "うまくいったぜ", "効果時間が<b>2倍</b>になる。", "徹夜したんじゃないの？");
 	/* Upgrades [Mouse] */
-	function upgradeMouseJa(id, name, desc) {
-		/*	Game.UpgradesById[id]["name"]=String(name);*/
-		Game.UpgradesById[id]["desc"] = "1クリック当たりのクッキー生産量を<b>CpSの1%分</b>増やす。<q>" + String(desc) + "</q>";
-		return;
-	}
-	upgradeMouseJa(75, "プラスチックマウス", "ちょっときしむな");
-	upgradeMouseJa(76, "鉄のマウス", "1349のようにクリックだ！");
-	upgradeMouseJa(77, "チタニウムのマウス", "重いけどパワフル");
-	upgradeMouseJa(78, "アダマンチウムのマウス", "これでダイヤモンドも切れるよ。");
-	upgradeMouseJa(119, "アンオブテニウムのマウス", "これだけ良いマウスがあれば十分だ");
-	upgradeMouseJa(190, "エルディウムのマウス", "もし私がきみなら、それをネズミみたいにカリカリする");
-	upgradeMouseJa(191, "望まれし合金のマウス", "クリックは立派で男前なことだ。しかしマウスに穴を開けるようなことはするな。ゲームをしなさい");
-	upgradeMouseJa(366, "夢の鋼鉄のマウス", "君はタッチパッドでクリックしているかもしれないが、我々は今やもっと賢くなるべきだ。");
-	upgradeMouseJa(367, "不磨のマウス", "マウスをラットにでもさせるまで鍛え続けるつもりかい？");
-	upgradeMouseJa(427, "軍用ミスリル製マウス", "53人が囲んで押して何とか動き、48人が一斉にボタンに飛び降り漸くクリック。言わば、それくらい重くて骨が折れる。");
+
 	/* Upgrades [Grandma] */
 	function upgradeGrandmaJa(id, category, name, desc) {
 		var grandmas = String(Game.ObjectsById[1]["displayName"])
@@ -510,7 +541,9 @@ CT.Init = function() {
 	}
 	if (proceed) {
 		CT.Legacyway();
-		CT.Upgrades.Lab();
+		CT.Upgrades.MouseRun();
+		CT.Upgrades.BuildingRun();
+		CT.Upgrades.Pocket();
 		CT.ShowVersion();
 		if (Game.prefs.popups) Game.Popup('日本語パッチバージョン' + CT.VersionMajor + '-' + CT.VersionMinor + ' を読み込みました！');
 		else Game.Notify('日本語パッチバージョン ' + CT.VersionMajor + '-' + CT.VersionMinor + ' を読み込みました！', '', '', 1, 1);
