@@ -25,8 +25,8 @@ http://orteil.dashnet.org
  * Header *
  **********/
 var CT={	/*デバッグしやすいようにvarを使用。本来ならletにすべき*/
-	VersionMajor :'2.0106',
-	VersionMinor : 'd2',
+	VersionMajor :'2.012',
+	VersionMinor : 'a1',
 	ShowVersion : function(){
 		const str = "<div>日本語 " + this.VersionMajor +"-" + this.VersionMinor + "<br>ゲーム " + Game.version +"</div>";
 		document.getElementById('versionNumber').innerHTML = str;
@@ -55,8 +55,7 @@ CT.Upgrades = {
 	},
 	Building:function(id,buil,name,desc){
 		/*Game.UpgradesById[id]["name"]=String(name);*/
-		Game.UpgradesById[id]["desc"] = String(buil) + "の生産力が<b>2倍</b>になる。<q>" + String(desc) + "</q>";
-		Game.UpgradesById[id]["baseDesc"] = String(buil) + "の生産力が<b>2倍</b>になる。<q>" + String(desc) + "</q>";
+		Game.UpgradesById[id]["desc"] = Game.UpgradesById[id]["baseDesc"] = String(buil) + "の生産力が<b>2倍</b>になる。<q>" + String(desc) + "</q>";
 	},
 	/*錬金術室*/
 	Lab : function (){
@@ -113,7 +112,7 @@ CT.Upgrades = {
 	/* Upgrades [Kitten] */
 	Kitten: function(id, name, desc) {
 		/*	Game.UpgradesById[id]["name"]=String(name);*/
-		Game.UpgradesById[id]["desc"] = "ミルクの量が多いほど<b>CpS</b>を増やす。<q>" + String(desc) + "</q>";
+		Game.UpgradesById[id]["desc"] = Game.UpgradesById[id]["baseDesc"] = "ミルクの量が多いほど<b>CpS</b>を増やす。<q>" + String(desc) + "</q>";
 	},
 	KittenCat: function(){
 		this.Kitten(31, "お手伝い猫", "手伝うかにゃー？");
@@ -238,6 +237,31 @@ CT.Upgrades = {
 		this.Cook(464,"ペルシャの米粉クッキー ","バター不使用の小さなクッキー、隠し味はバラの蒸留水とケシの実。")
 		this.Cook(465,"ノルウェーのクッキー","薄っぺらなバタークッキーに、砂糖漬けチェリーの欠片が一粒だけちょこんと。スカンジナビア人の実存主義の寒々しさを例えているのだとか。")
 		this.Cook(466,"クリスピーライスクッキー","おうちで楽しく手作り！ 市販のクッキーは時代遅れ！ 市場体制を転覆せよ！ そいつはマシュマロ入りだ！ 打倒資本主義！")
+		this.Cook(467,"ウベクッキー","この色合いは原材料の紫ヤム芋に由来。色彩象徴によると、このクッキーは貴人、聖人、或いは極悪人のいずれかに該当する。")
+		/*ver 2.0109から*/
+		this.Cook(502,"アーモンドクッキー","時々これが一枚欲しいような。時々欲しくないような。")
+		this.Cook(503,"ヘーゼルナッツクッキー","早朝の散策で、蚊柱の無い、緑の香気溢れる森の中を通り抜けた時のような風味。")
+		this.Cook(504,"胡桃クッキー","一部の専門家は、胡桃が知覚を持つ徴候として、人間の脳との不気味な類似性があることを指摘してきた - その説には大多数の胡桃が猛反発している。")
+	},
+	BirthdayCookie:function (){
+		Game.UpgradesById[426]["desc"] = Game.UpgradesById[426]["baseDesc"] = "クッキークリッカーの存続年数毎に生産倍率+1% （現在"+String(Math.floor((Date.now()-new Date(2013,7,8))/(1000*60*60*24*365)))+"%）<q>クッキークリッカーで遊んでくれてありがとう！- Orteil</q>";	
+	},
+	
+	Synergies:function (id, name, forward, back, desc) {
+		/*	Game.UpgradesById[id]["name"]=String(name);*/
+		Game.UpgradesById[id]["desc"] = Game.UpgradesById[id]["baseDesc"] = String(forward) + "の<b>CpS</b>を" + String(back) + "ごとに<b>+5%</b>する。<br>" + String(back) + "の<b>CpS</b>を" + String(forward) + "ごとに<b>+0.1%</b>する。<q>" + String(desc) + "</q>";
+	},
+	SynergiesTwo:function () {
+		this.Synergies(370,"雨乞い","農場","寺院","複雑なダンスとハイテクの雨雲破壊レーザーを駆使したとても宗教的な儀式。");
+		this.Synergies(372,"小惑星掘り","鉱山","宇宙船","1974年度宇宙連盟大会の決議によって、これ以上彗星や月や有人小惑星を掘削することは法的に不可能になっている。しかし、宇宙ワイロはとても有効だ。");
+		this.Synergies(374,"一時的オーバークロック","工場","タイムマシン","着色料定着レーンの速度向上要請にあたって、システムに加速装置を追加導入します。");
+		this.Synergies(376,"印刷機","工場","銀行","本物そっくりの偽札を刷れ。印刷に使ったインクに十分見合うだけのものを。");
+		this.Synergies(378,"神の粒子", "神殿", "反物質凝縮器", "神は我らが考えていたよりもずっと微小であることが判明した、私の推測だが。")
+		this.Synergies(380,"魔法植物学","農場","魔法使いの塔","すでに一部の保守系新聞で「魔法使いの遺伝子組み換え作物」と報じられている。");
+		this.Synergies(382,"造船所","工場","宇宙船","ここではこの星一番の輝かしい宇宙船を建造するために、木材加工品と僥倖とアスベスト断熱材とを組み上げている。");
+		this.Synergies(384,"純金ファンド","銀行","錬金術室","金が経済の背骨であるならば、クッキーは経済の股関節であるに違いない。");
+		this.Synergies(388,"原始の輝き","タイムマシン","プリズム","悠久の時を経ても古代の光は未だに輝いている。これは限りなく純粋だが老年のため相当に脆い。");
+		this.Synergies(390,"化学の技量","錬金術室","反物質凝縮器", "ワクワクするような新しいモノを発見しよう！溶肉剤とか不活性シャンプー副産物 #17 とかカーボン++ とか")
 	},
 
 	RunAll  : function(){
@@ -248,6 +272,8 @@ CT.Upgrades = {
 		this.Chance();
 		this.KittenCat();
 		this.Cookie();
+		this.BirthdayCookie();
+		this.SynergiesTwo();
 	},
 }
 
@@ -531,8 +557,7 @@ CT.Legacyway = function() {
 		Game.UpgradesById[id]["desc"] = String(forward) + "の<b>CpS</b>を" + String(back) + "ごとに<b>+5%</b>する。<br>" + String(back) + "の<b>CpS</b>を" + String(forward) + "ごとに<b>+0.1%</b>する。<q>" + String(desc) + "</q>";
 		return;
 	}
-	upgradeSynergiesTwo(378, "神の粒子", "神殿", "反物質凝縮器", "神は我らが考えていたよりもずっと微小であることが判明した、私の推測だが。")
-	upgradeSynergiesTwo(390, "化学の技量", "錬金術室", "反物質凝縮器", "ワクワクするような新しいモノを発見しよう！溶肉剤とか不活性シャンプー副産物 #17 とかカーボン++ とか")
+
 	upgradeSynergiesTwo(443, "チャームクォーク", "反物質凝縮器", "チャンスメーカー", "みなが追い求めるラッキークォーク！")
 	/*関数の上書き（試験運用）*/
 	Game.SetResearch = function(what, time) {
