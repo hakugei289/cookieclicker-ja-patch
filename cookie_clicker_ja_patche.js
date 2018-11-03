@@ -257,6 +257,7 @@ CT.Upgrades = {
     Fractal: function() {
         const bldg = Game.ObjectsById[15]["displayName"]="無限再帰エンジン";
 		Game.ObjectsById[15]["desc"]="クッキーを更に多くのクッキーに変換する";
+		
     },	
 	
     /* Upgrades [Kitten] */
@@ -406,6 +407,9 @@ CT.Upgrades = {
         /*	Game.UpgradesById[id]["name"]=String(name);*/
         Game.UpgradesById[id]["desc"] = Game.UpgradesById[id]["baseDesc"] = String(forward) + "の<b>CpS</b>を" + String(back) + "ごとに<b>+5%</b>する。<br>" + String(back) + "の<b>CpS</b>を" + String(forward) + "ごとに<b>+0.1%</b>する。<q>" + String(desc) + "</q>";
     },
+	SynergiesOne: function() {
+		this.Synergies(533, "合わせ鏡", "プリズム", "無限再帰エンジン", "合わせ鏡を合わせ鏡にしたらどうなるか、君にはわかる？ どうやら、全世界の誰もわかんないらしいよ。");
+	},
     SynergiesTwo: function() {
         this.Synergies(370, "雨乞い", "農場", "神殿", "複雑なダンスとハイテクの雨雲破壊レーザーを駆使したとても宗教的な儀式。");
         this.Synergies(372, "小惑星掘り", "鉱山", "宇宙船", "1974年度宇宙連盟大会の決議によって、これ以上彗星や月や有人小惑星を掘削することは法的に不可能になっている。しかし、宇宙ワイロはとても有効だ。");
@@ -441,6 +445,7 @@ CT.Upgrades = {
         this.KittenCat();
         this.Cookie();
         this.BirthdayCookie();
+        this.SynergiesOne();
         this.SynergiesTwo();
     },
 }
