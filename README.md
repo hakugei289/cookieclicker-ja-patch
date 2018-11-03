@@ -11,7 +11,7 @@ http://orteil.dashnet.org/cookieclicker/
 このソフトウェアは非公式なものであり、
 使用には、ゲームデータの破損等のリスクが伴います。
 すべて自己責任でご利用ください。
-#使い方#
+# 使い方 #
 
 javascriptのコンソールで実行すれば動くはずですが
 ブックマークレットで読み込むのが楽です。
@@ -21,7 +21,7 @@ javascriptのコンソールで実行すれば動くはずですが
 http://futrans.net/projects/ccjp/3373/
 
 
-#翻訳データについて#
+# 翻訳データについて #
 本ソフトウェアの作成には
 日本語wikiのデータを利用しました。
 編集者の皆様に感謝を申し上げます。
@@ -29,12 +29,12 @@ http://futrans.net/projects/ccjp/3373/
 cookie clicker 日本語wiki
 https://www55.atwiki.jp/cookieclickerjpn/
 
-#ソフトウェアのライセンスについて#
+# ソフトウェアのライセンスについて #
 本ソフトウェアは、本家ゲームのライセンスを継承します。
 以下の条項に従ってください。
 また、ソフトウェアのバグや、改良のアイディア等
 ございましたら、お気軽にお問い合わせorコミット下さい。
----以下、本家ライセンス-----------------------------------------------
+--- 以下、本家ライセンス -----------------------------------------------
 If you wish to make a translation or a mod of the game, you are required to follow these rules :
 rehosting the game, editing the sourcecode, dealing with bugs, and keeping up with the official version’s updates are your own responsibilities
 
