@@ -20,7 +20,7 @@ http://orteil.dashnet.org/cookieclicker/
 ホスティング版をご利用の方は、
 以下のスプリクトをブックマークレットへ追加して下さい。
 
-```  javascript:(function() { Game.LoadMod('https://lib.futrans.net/ccjp/dev/cookie_clicker_ja_patche.js'); }()); ``` 
+```  javascript:(function() { Game.LoadMod('https://hakugei289.github.io/cookieclicker-ja-patch/cookie_clicker_ja_patche.js'); }()); ``` 
 
 なお、詳細やβ版の利用等については、私のブログを参照下さい。
 
