@@ -13,9 +13,16 @@ http://orteil.dashnet.org/cookieclicker/
 すべて自己責任でご利用ください。
 # 使い方 #
 
-javascriptのコンソールで実行すれば動くはずですが
-ブックマークレットで読み込むのが楽です。
+ブラウザのJSコンソールへコピペして実行すれば動きます。
+…が、面倒なのでブックマークレットを読み込むのが楽です。
 簡単に適用できるホスティング版も用意しています。
+
+ホスティング版をご利用の方は、
+以下のスプリクトをブックマークレットへ追加して下さい。
+
+" javascript:(function() { Game.LoadMod('https://lib.futrans.net/ccjp/dev/cookie_clicker_ja_patche.js'); }()); "
+
+なお、詳細やβ版の利用等については、私のブログを参照下さい。
 
 「ホスティング版日本語パッチの利用方法」
 http://futrans.net/projects/ccjp/3373/
@@ -34,7 +41,10 @@ https://www55.atwiki.jp/cookieclickerjpn/
 以下の条項に従ってください。
 また、ソフトウェアのバグや、改良のアイディア等
 ございましたら、お気軽にお問い合わせorコミット下さい。
---- 以下、本家ライセンス -----------------------------------------------
+
+ ----------------------------------------------------
+  以下、本家ライセンス
+ ----------------------------------------------------
 If you wish to make a translation or a mod of the game, you are required to follow these rules :
 rehosting the game, editing the sourcecode, dealing with bugs, and keeping up with the official version’s updates are your own responsibilities
 
